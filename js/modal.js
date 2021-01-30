@@ -1,7 +1,7 @@
 class Modal {
   constructor(websiteNameEl) {
     this.websiteNameEl = websiteNameEl;
-    this.modal = document.getElementById('modal');
+    this.modal = document.querySelector('#modal');
     this._init();
   }
 
@@ -21,8 +21,8 @@ class Modal {
   }
 
   _addEvent() {
-    const modalShow = document.getElementById('show-modal');
-    const modalClose = document.getElementById('close-modal');
+    const modalShow = document.querySelector('#show-modal');
+    const modalClose = document.querySelector('#close-modal');
 
     // Modal Event Listener
     modalShow.addEventListener('click', () => this._showModal());
