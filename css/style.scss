@@ -1,12 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Karla&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
+$black-50: rgba(0, 0, 0, 0.5);
+$black-60: rgba(0, 0, 0, 0.6);
+$black-80: rgba(0, 0, 0, 0.8);
+
 :root {
   --primary-color: #7c59b0;
   --border-radius: 5px;
 }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -20,65 +24,55 @@ body {
 h1 {
   color: white;
   padding: 20px;
-  background: rgba(0, 0, 0, 0.5);
+  background: $black-50;
   border-radius: var(--border-radius);
   cursor: pointer;
   text-transform: uppercase;
   width: 275px;
   margin: 20px auto 10px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   text-align: center;
-}
 
-h1:hover {
-  background: rgba(0, 0, 0, 0.8);
+  &:hover {
+    background: $black-80;
+  }
 }
 
 /* Bookmarks */
 .container {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .item {
-  background: rgba(0, 0, 0, 0.5);
+  background: $black-50;
   color: white;
   border-radius: var(--border-radius);
   padding: 20px;
   margin: 10px;
-}
 
-.item:hover {
-  background: rgba(0, 0, 0, 0.6);
-  cursor: pointer;
+  &:hover {
+    background: $black-60;
+    cursor: pointer;
+  }
 }
 
 a {
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
-}
 
-a:link, a:visited {
-  color: white;
-  text-decoration: none;
-}
+  &:link,
+  &:visited {
+    color: white;
+    text-decoration: none;
+  }
 
-a:hover, a:active {
-  text-decoration: underline;
+  &:hover,
+  &:active {
+    text-decoration: underline;
+  }
 }
 
 .fa-times {
@@ -90,18 +84,18 @@ a:hover, a:active {
 .name {
   margin-top: 20px;
   margin-right: 20px;
-}
 
-.name img {
-  height: 20px;
-  width: 20px;
-  vertical-align: sub;
-  margin-right: 5px;
+  & img {
+    height: 20px;
+    width: 20px;
+    vertical-align: sub;
+    margin-right: 5px;
+  }
 }
 
 /* Modal */
 .modal-container {
-  background: rgba(0, 0, 0, 0.6);
+  background: $black-60;
   display: none;
   position: fixed;
   top: 0;
@@ -111,37 +105,17 @@ a:hover, a:active {
 }
 
 .show-modal {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal {
   background: white;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 10px $black-80;
   min-width: 95%;
   width: 500px;
-  -webkit-animation: open-modal 1s;
-          animation: open-modal 1s;
-}
-
-@-webkit-keyframes open-modal {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation: open-modal 1s;
 }
 
 @keyframes open-modal {
@@ -179,21 +153,23 @@ h3 {
 }
 
 /* Form */
-.form-group {
-  height: 55px;
-}
+.form {
+  &-group {
+    height: 55px;
+  }
 
-.form-input {
-  width: 97%;
-  padding: 5px;
-  border: 2px solid var(--primary-color);
-  display: block;
-  outline: none;
-}
+  &-input {
+    width: 97%;
+    padding: 5px;
+    border: 2px solid var(--primary-color);
+    display: block;
+    outline: none;
+  }
 
-.form-label {
-  color: var(--primary-color);
-  display: block;
+  &-label {
+    color: var(--primary-color);
+    display: block;
+  }
 }
 
 button {
@@ -205,25 +181,19 @@ button {
   border: none;
   border-radius: var(--border-radius);
   margin-top: 10px;
-}
 
-button:hover {
-  -webkit-filter: brightness(110%);
-          filter: brightness(110%);
-}
+  &:hover {
+    filter: brightness(110%);
+  }
 
-button:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 /* Media Query: Large Smartphone (Vertical) */
 @media screen and (max-width: 600px) {
   .container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    flex-direction: column;
   }
 }
-/*# sourceMappingURL=style.css.map */
