@@ -83,6 +83,7 @@ class Bookmark {
       this._createBookmark();
     }
 
+    console.log(this);
     this._buildBookmarks();
   }
 
@@ -99,7 +100,7 @@ class Bookmark {
   // Handle Data from Form
   _storeBookmark(e) {
     e.preventDefault();
-    const nameValue = websiteNameEl.value;
+    const nameValue = this.websiteNameEl.value;
     const websiteUrlEl = document.querySelector('#website-url');
     let urlValue = websiteUrlEl.value;
 
