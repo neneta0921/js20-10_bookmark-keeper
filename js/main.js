@@ -1,5 +1,4 @@
 const websiteNameEl = document.querySelector('#website-name');
-const validate = new Validate();
 const bookmark = new Bookmark(websiteNameEl);
 const modal = new Modal(websiteNameEl);
 
