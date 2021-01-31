@@ -1,9 +1,8 @@
 let bookmarks = {};
 
 class Bookmark {
-  constructor(websiteNameEl, validate) {
+  constructor(websiteNameEl) {
     this.websiteNameEl = websiteNameEl;
-    this.validate = validate;
     this.bookmarkForm = document.querySelector('#bookmark-form');
     this._init();
   }
@@ -54,7 +53,8 @@ class Bookmark {
     const closeIcon = document.createElement('i');
     closeIcon.classList.add('fas', 'fa-times', 'delete-bookmark');
     closeIcon.setAttribute('title', 'delete-bookmark');
-    closeIcon.setAttribute('id', id);
+    closeIcon.setAttribute('onclick', `deleteBookmark('${id}')`);
+    // closeIcon.setAttribute('id', id);
     return closeIcon;
   }
 
@@ -72,6 +72,17 @@ class Bookmark {
     link.textContent = name;
     return link;
   }
+
+  // Delete Bookmark
+  // deleteBookmark() {
+  //   // Loop through the bookmarks array
+  //   if (bookmarks[this.id]) {
+  //     delete bookmarks[this.id];
+  //   }
+  //   // // Update bookmarks array in localStorage, re-populate DOM
+  //   localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  //   this.fetchBookmarks();
+  // }
 
   // Fetch Bookmarks
   fetchBookmarks() {
@@ -109,7 +120,7 @@ class Bookmark {
     }
 
     // Validate
-    if (!this.validate(nameValue, urlValue)) {
+    if (!validate.validate(nameValue, urlValue)) {
       return false;
     }
 
@@ -131,4 +142,16 @@ class Bookmark {
     // Event Listener
     this.bookmarkForm.addEventListener('submit', (e) => this._storeBookmark(e));
   }
+
+  // addEvent() {
+  //   const closeIcons = document.querySelectorAll('.delete-bookmark');
+  //   closeIcons.forEach((closeIcon) => {
+  //     const id = closeIcon.getAttribute('id');
+  //     closeIcon.addEventListener('click', {
+  //       id: id,
+  //       fetchBookmarks: this.fetchBookmarks,
+  //       handleEvent: this.deleteBookmark,
+  //     });
+  //   });
+  // }
 }
